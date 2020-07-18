@@ -1,0 +1,60 @@
+
+<head>
+    <title>Nutritions Page</title>
+    <link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+</head>
+
+
+
+
+
+<div class="start">
+
+  <image src= "{{url_for('static', filename='images/hc.jpg')}}" style="width:200px;height:200px;">
+  <div class ="center">
+
+
+    <img src=  "{{url_for('static', filename='images/main.png')}}" alt="filter applied" class="blurrr" style="width:600px;height:400px;"/>
+  </div>
+  <div class="center">
+    <div class="form-style-2-heading"><h1>Robot Says - Here is the list of Food you have ordered.   </h1></div>
+
+    <div class="form-style-2-heading"><h1>Food Data</h1></div>
+
+
+    {% for food in data: %}
+
+
+    <div class='some-page-wrapper'>
+      <div class='row'>
+        <div class='column'>
+          <div class='green-column'>
+            <img src=  "../static/images/{{food[2]}}" alt="filter applied" style="width:150px;height:150px;" />
+          </div>
+        </div>
+        <div class='column'>
+          <div class='blue-column' style="width:150px;height:150px;">
+
+              <b><p style="margin-top:25%; font-size:20px;">{{food[1]}}</p></b>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+{%endfor%}
+
+
+  <h1><a href="/newuser"><button class ="daily-page1" type="button" >   Go Back
+    </button></a></h1>
+    <h1><a href="/end_page"><button type="button" style="width:100%;">   Click here to End the session
+    </button></a></h1>
+
+
+
+
+
+
+  </div>
+</div>

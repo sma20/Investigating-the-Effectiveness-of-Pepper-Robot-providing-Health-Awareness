@@ -1,0 +1,33 @@
+
+<head>
+<title>Take a Photo</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+
+
+
+<div class="start">
+
+  <image src= "{{url_for('static', filename='images/hc.jpg')}}"  >
+
+  <div class ="center">
+
+    <img src=  "{{url_for('static', filename='images/main.png')}}" alt="filter applied" />
+  </div>
+
+  <div class="center">
+    <div class="form-style-2-heading"><h1>Smile Please</h1></div>
+      <img  src="{{ url_for('video_feed') }}" alt="video feed">
+      <a href="camera_start">
+
+      </a>
+      <a href="{{ url_for('capture') }}">
+        <button type="button">  Take Picture </button>
+      </a>
+
+  </div>
+
+</div>

@@ -1,0 +1,58 @@
+<head>
+    <title>New User</title>
+    <link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+</head>
+
+
+<div class="start">
+
+  <image src= "{{url_for('static', filename='images/hc.jpg')}}"  >
+  <div class ="center">
+
+    <img src=  "{{url_for('static', filename='images/main.png')}}" alt="filter applied" class="blurrr" style="width:600px;height:400px;"/>
+  </div>
+
+
+  <div class="center">
+        <div class="form-style-2-heading"><h1>Lets Get Fimiliar</h1></div>
+
+        <div class="form-style-2">
+
+          <form action = "http://127.0.0.1:5000/add_user" method = "POST" enctype="multipart/form-data">
+            <input type = "hidden" name = "image" value="{{ path }}" />
+            <label for="field1"><span>Name <span class="required">*</span></span><input type="text" class="input-field" name="name" value="" /></label>
+            <label for="field2"><span>Age <span class="required">*</span></span><input type="text" class="input-field" name="age" value="" /></label>
+
+            <label for="field4"><span>Health Problem</span><select name="health" class="select-field">
+              {% for d in data %}
+              <option value={{ d[0] }}>{{ d[1] }}</option>
+              {% endfor %}
+              </select></label>
+
+            <label for="field4"><span>Allergies</span><select name="allergies" class="select-field">
+              {% for d in data1 %}
+              <option value={{ d[0] }}>{{ d[1] }}</option>
+              {% endfor %}
+              </select></label>
+
+
+
+                <label for="field5"><span>Image <span class="required">*</span></span><img class="back1"  src="{{ url_for('static', filename=path) }}" alt="capture" ></label>
+
+
+
+        <!--
+                <a href="{{ url_for('root') }}">
+                  <img class="back" src="{{ url_for('static',filename='back.png') }}" alt="go back" class="btn">
+                </a>
+        -->
+
+            <label><span> </span><input type="submit" value="Submit" /></label>
+          </form>
+        </div>
+
+<div class="form-style-2-heading"><h1>Robot Says - Can you please type in the on screen details?
+lovely. I’ve started liking you already. Please submit the details and Let’s get started. </h1></div>
+
+  </div>
+</div>

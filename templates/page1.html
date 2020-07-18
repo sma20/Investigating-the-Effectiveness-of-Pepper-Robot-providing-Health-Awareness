@@ -1,0 +1,29 @@
+
+
+<head>
+    <title>Interaction Page</title>
+    <link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+</head>
+
+
+
+
+
+<div class="start">
+
+  <image src= "{{url_for('static', filename='images/hc.jpg')}}"  >
+  <div class ="center">
+
+    <img src=  "{{url_for('static', filename='images/main.png')}}" alt="filter applied" class="blurrr" style="width:600px;height:400px;"/>
+  </div>
+  <div class="center">
+
+    <h1><a href="menu_page/{{health+'-'+allergies}}"><button class ="daily-page1" type="button" >   Start Daily Interaction
+    </button></a></h1>
+    <h1><a href="previousfood"><button class ="vpd-page1" type="button" >   View Previous Data
+    </button></a></h1>
+    <h1><a href="#"><button class ="vad-page1" type="button" >   View a Demo
+    </button></a></h1>
+        <div class="form-style-2-heading"><h1>Robot Says - Hi {{ name }}, Please press one of the buttons to start your interaction.  </h1></div>
+  </div>
+</div>

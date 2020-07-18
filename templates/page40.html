@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+</head>
+<h1>  <image src= "{{url_for('static', filename='images/hc.jpg')}}" style="width:10%;"  >
+</h1>
+
+
+
+    <body>
+
+
+        <center>
+            <div class="bd-example" align="middle">
+            <h1>Lets Get Fimiliar</h1>
+            <img class="bg-img"  src=  "{{url_for('static', filename='images/main.png')}}"
+            style="width:100%;" alt="filter applied" class="blurrr" style="width:600px;height:400px;"/>
+
+            <div class="backgr-text">
+              <form action = "http://127.0.0.1:5000/page1" method = "POST" enctype="multipart/form-data">
+               <p>Name <input type = "text" name = "Name" /></p>
+               <p>Age <input type = "text" name = "Age" /></p>
+                <p>Any Allergies? <input type = "text" name = "Allergies" /></p>
+                 <p>Health Conditions<input type = "text" name = "Health conditions" /></p>
+               <p><input type = "submit" value = "submit" /></p>
+              </form>
+
+
+
+            </div>
+
+        </center>
+    </body>
+</html>

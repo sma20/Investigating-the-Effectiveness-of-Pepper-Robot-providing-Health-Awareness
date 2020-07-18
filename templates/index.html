@@ -1,0 +1,12 @@
+
+<html>
+<head>
+    <title>{% block title %} hello{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+</head>
+<body>
+    {% block content %}
+    Helloooooo
+    {% endblock %}
+</body>
+</html>

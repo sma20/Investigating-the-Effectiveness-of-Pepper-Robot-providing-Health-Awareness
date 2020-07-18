@@ -1,0 +1,86 @@
+<head>
+    <title>options</title>
+    <link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+</head>
+
+
+
+
+
+<div class="start">
+
+  <image src= "{{url_for('static', filename='images/hc.jpg')}}"  >
+  <div class ="center">
+
+    <img src=  "{{url_for('static', filename='images/main.png')}}" alt="filter applied" class="blurrr" style="width:600px;height:400px;" /> 
+  </div>
+  <div class="center">
+    <div class="form-style-2-heading"><h1>Please Click on the food Option to eat next time</h1></div>
+
+
+    {% block main %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+
+
+          <table align="center" style= "text-align:center;  margin-left:auto;  margin-right:auto; ">
+<tbody>
+
+    <tr>
+        <td><div> <a href="/saveChoice/Apple Babanas"><img src=  "{{url_for('static', filename='images/Apple Babanas.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+        <td><div> <a href="/saveChoice/boil_eggs"><img src=  "{{url_for('static', filename='images/boil_eggs.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+        <td><div> <a href="/saveChoice/hash-brown"><img src=  "{{url_for('static', filename='images/hash-brown.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+        <td><div> <a href="/saveChoice/hasselback-sweet-potatoes"><img src=  "{{url_for('static', filename='images/hasselback-sweet-potatoes.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+        <td><div> <a href="/saveChoice/lentil_soup"><img src=  "{{url_for('static', filename='images/lentil_soup.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+
+    </tr>
+
+    <tr>
+      <td><div> <a href="/saveChoice/cereal"><img src=  "{{url_for('static', filename='images/cereal.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/Cheddar-Broccoli-Soup"><img src=  "{{url_for('static', filename='images/Cheddar-Broccoli-Soup.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/Parsley-Salad-with-Almonds"><img src=  "{{url_for('static', filename='images/Parsley-Salad-with-Almonds.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/plain_tea"><img src=  "{{url_for('static', filename='images/plain_tea.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/salmon"><img src=  "{{url_for('static', filename='images/salmon.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+</tr>
+
+    <tr>
+      <td><div> <a href="/saveChoice/cheesecake"><img src=  "{{url_for('static', filename='images/cheesecake.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/chick-noodle-soup"><img src=  "{{url_for('static', filename='images/chick-noodle-soup.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/quinoa-salad"><img src=  "{{url_for('static', filename='images/quinoa-salad.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/Roasted-Turkey-Breast-3"><img src=  "{{url_for('static', filename='images/Roasted-Turkey-Breast-3.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/Vegetable-Beef-Soup_3"><img src=  "{{url_for('static', filename='images/Vegetable-Beef-Soup_3.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+
+    </tr>
+
+    <tr>
+      <td><div> <a href="/saveChoice/chicken-and-broccoli-stir-fry"><img src=  "{{url_for('static', filename='images/chicken-and-broccoli-stir-fry.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/chocolate-ic-cream"><img src=  "{{url_for('static', filename='images/chocolate-ic-cream.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/three_bean_beef"><img src=  "{{url_for('static', filename='images/three_bean_beef.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/tomato_soup"><img src=  "{{url_for('static', filename='images/tomato_soup.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/english muffins"><img src=  "{{url_for('static', filename='images/english muffins.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+    </tr>
+
+    <tr>
+      <td><div> <a href="/saveChoice/Corn-Salad"><img src=  "{{url_for('static', filename='images/Corn-Salad.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/Easy-Potato-Salad"><img src=  "{{url_for('static', filename='images/Easy-Potato-Salad.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/Vanilla-ice-cream"><img src=  "{{url_for('static', filename='images/Vanilla-ice-cream.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/vegesoup"><img src=  "{{url_for('static', filename='images/vegesoup.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+      <td><div> <a href="/saveChoice/egg_roll-1"><img src=  "{{url_for('static', filename='images/egg_roll-1.jpg')}}" alt="filter applied" style="width:100px;height:100px;" /></a><br></div></td>
+
+    </tr>
+
+
+    <tr>
+</tr>
+</tbody>
+</table>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
+
+
+</div>

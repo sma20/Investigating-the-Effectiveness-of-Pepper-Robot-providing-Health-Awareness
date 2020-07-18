@@ -1,0 +1,50 @@
+
+<head>
+    <title>Nutritions Page</title>
+    <link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+</head>
+
+
+
+
+<div class="start">
+
+  <image src= "{{url_for('static', filename='images/hc.jpg')}}"  >
+  <div class ="center">
+
+    <img src=  "{{url_for('static', filename='images/main.png')}}" alt="filter applied" class="blurrr" style="width:600px;height:400px;" />
+  </div>
+  <div class="center">
+    <div class="form-style-2-heading"><h1>Food Ordered</h1></div>
+
+
+    <div class='some-page-wrapper'>
+      <div class='row'>
+        <div class='column'>
+          <div class='green-column'>
+            <img src=  "../static/images/{{image}}" alt="filter applied" style="width:150px;height:150px;" />
+          </div>
+        </div>
+        <div class='column'>
+          <div class='blue-column' style="width:150px;height:150px;">
+
+              <b><p style="margin-top:25%; font-size:20px;">{{name}}</p></b>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+
+    <h1><a href="/end_page"><button type="button" style="width:100%;">   Click here to end the session
+    </button></a></h1>
+    <div class="form-style-2-heading"><h1>Robot Says - So [item] has []this much calories, it has [] carbs, the fat quantity it has is [] and also it has []g of proteins.  </h1></div>
+
+
+
+  </div>
+</div>

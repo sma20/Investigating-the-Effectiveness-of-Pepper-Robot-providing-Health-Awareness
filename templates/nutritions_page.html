@@ -1,0 +1,97 @@
+
+<head>
+    <title>Nutritions Page</title>
+    <link rel="stylesheet" type="text/css" media="screen" href= "{{url_for('static', filename='style.css')}}" >
+</head>
+
+
+
+
+
+<div class="start">
+
+  <image src= "{{url_for('static', filename='images/hc.jpg')}}" style="width:200px;height:200px;" >
+  <div class ="center">
+
+    <img src=  "{{url_for('static', filename='images/main.png')}}" alt="filter applied" class="bg-img" style="width:600px;height:400px;"/>
+  </div>
+  <div class="center">
+    <div class="form-style-2-heading"><h1>Nutritions</h1></div>
+
+
+    <div class='some-page-wrapper'>
+      <div class='row'>
+        <div class='column'>
+          <div class='blue-column'>
+            Calories
+          </div>
+        </div>
+        <div class='column'>
+          <div class='green-column'>
+            {{serve['calories']}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='some-page-wrapper'>
+      <div class='row'>
+        <div class='column'>
+          <div class='blue-column'>
+            Carbohydrates
+          </div>
+        </div>
+        <div class='column'>
+          <div class='green-column'>
+            {{serve['carbohydrates']}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='some-page-wrapper'>
+      <div class='row'>
+        <div class='column'>
+          <div class='blue-column'>
+            Fat
+          </div>
+        </div>
+        <div class='column'>
+          <div class='green-column'>
+            {{serve['fat']}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='some-page-wrapper'>
+      <div class='row'>
+        <div class='column'>
+          <div class='blue-column'>
+            Protein
+          </div>
+        </div>
+        <div class='column'>
+          <div class='green-column'>
+            {{serve['protein']}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <h1><a href="suggestions_page/{{health}}"><button type="button" style="width:100%;">   Click here if you need some of my suggestions
+    </button></a></h1>
+    <h1><a href="end_page"><button type="button" style="width:100%;">   Click here to end the session
+    </button></a></h1>
+    <div class="form-style-2-heading"><h1>Robot Says - So [item] has []this much calories, it has [] carbs, the fat quantity it has is [] and also it has []g of proteins.  </h1></div>
+
+
+
+  </div>
+</div>
