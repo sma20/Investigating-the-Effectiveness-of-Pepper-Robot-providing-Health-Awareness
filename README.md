@@ -14,10 +14,13 @@ Prerequisits:
 $ pip install -U Flask / pip3 install -U Flask
 
 $ sudo pip install -r requirements.txt
+
 $ sudo pip install configparser
+
 $ sudo pip install parse
 
 $ sudo apt update
+
 $ sudo apt install python3-opencv
 
 $ pip3 install camera
