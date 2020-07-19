@@ -192,7 +192,8 @@ def newuser():
 
 
     rv = getUser(name)
-
+    id = 0
+    
     for r in rv:
         name = r[0]
         health = r[1]
