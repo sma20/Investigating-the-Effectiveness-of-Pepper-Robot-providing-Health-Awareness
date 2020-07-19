@@ -7,3 +7,19 @@
 </div>
 
 The aim of the project is to educate the adults (as a group or individual) about the nutrition’s they are taking in their daily meals and to give them their personalized suggestions. The virtual appearance of humanoid robot Pepper is programmed to interact with the human. 
+
+
+Prerequisits:
+
+$ pip install -U Flask / pip3 install -U Flask
+
+$ sudo pip install -r requirements.txt
+$ sudo pip install configparser
+$ sudo pip install parse
+
+$ sudo apt update
+$ sudo apt install python3-opencv
+
+$ pip3 install camera
+
+$ pip3 install face-recognition
