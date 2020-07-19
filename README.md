@@ -11,13 +11,13 @@ The aim of the project is to educate the adults (as a group or individual) about
 
 # Prerequisits:
 
-$ pip install -U Flask / pip3 install -U Flask
+$ pip3 install -U Flask
 
-$ sudo pip install -r requirements.txt
+$ sudo pip3 install -r requirements.txt
 
-$ sudo pip install configparser
+$ sudo pip3 install configparser
 
-$ sudo pip install parse
+$ sudo pip3 install parse
 
 $ sudo apt update
 
