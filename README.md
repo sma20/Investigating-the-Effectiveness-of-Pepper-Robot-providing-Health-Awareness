@@ -27,6 +27,8 @@ $ pip3 install camera
 
 $ pip3 install face-recognition
 
+$ pip3 install fatsecret
+
 
 
 # How to Run
