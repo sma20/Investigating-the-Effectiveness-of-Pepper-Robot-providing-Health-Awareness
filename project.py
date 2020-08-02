@@ -12,10 +12,25 @@ import time
 import socket
 from datetime import datetime
 from flask_socketio import SocketIO
-
-
+import pyttsx3
+from threading import Thread
+import mac_say
 
 from fatsecret import Fatsecret
+
+
+# Threading Class
+class Threader(Thread):
+    def __init__(self, *args, **kwargs):
+        Thread.__init__(self, *args, **kwargs)
+        self.daemon = True
+        self.start()
+
+    def run(self):
+
+        tts_engine = pyttsx3.init()
+        tts_engine.say(self._args)
+        tts_engine.runAndWait()
 
 
 
@@ -116,6 +131,8 @@ def root():
 
 @app.route('/camera_start/')
 def camera_start():
+    mac_say.say("Please look at me first and smile")
+
     return render_template('camera.html')
 
 def gen(camera):
@@ -143,6 +160,10 @@ def stamp_file(timestamp):
 @app.route('/capture/image/<timestamp>', methods=['POST', 'GET'])
 def show_capture(timestamp):
     path = stamp_file(timestamp)
+    mac_say.say("Please type in the following details")
+
+
+
     return render_template('userinfo_page.html',
         stamp=timestamp, path=path, data=problem_list, data1=alergies_list)
 
@@ -158,7 +179,14 @@ def add_user():
     image = result['image']
 
     insertUser(name, age, allergies, health, image)
+    mac_say.say("lovely. I feel like I’m your friend now. Let’s get started")
+    time.sleep(2)
 
+    #t = Thread(target=myfunc, args = (text,))
+    #t.start()
+    mac_say.say("Hello "+name+"I hope you are doing well today")
+    time.sleep(3)
+    mac_say.say("Please select one of the following options")
 
     return render_template('page1.html', name=name, health=health, allergies=allergies)
 
@@ -170,7 +198,10 @@ def home():
 
 @app.route("/start")
 def start():
+
+    mac_say.say("Good Afternoon. Please click on start button to continue")
     return render_template("start.html")
+
 
 @app.route('/page1',methods = ['POST', 'GET'])
 def page1():
@@ -193,7 +224,7 @@ def newuser():
 
     rv = getUser(name)
     id = 0
-    
+
     for r in rv:
         name = r[0]
         health = r[1]
@@ -208,8 +239,18 @@ def newuser():
 
 
     if flag == True:
+        mac_say.say("Hello"+name)
+        time.sleep(1)
+        mac_say.say("I have missed seeing you. How are you today?")
+        time.sleep(2)
+        mac_say.say("I hope you are having a wonderful day.")
+        time.sleep(2)
+        mac_say.say("Please select one of the following options")
         return render_template("page1.html", name = name, health = health, allergies=allergies  )
     else:
+        mac_say.say("I see that we are meeting first time")
+        time.sleep(2)
+        mac_say.say("Please click the button if you like to be my friend?")
         return render_template("newuser.html")
 
 
@@ -221,7 +262,9 @@ def saveChoice(name):
     user = session['id']
 
     addFood(name, image, user, today)
-
+    mac_say.say("nice choice. i like"+name+"too")
+    time.sleep(1)
+    mac_say.say("Please click to end the session")
     return render_template("userfood.html", name=name, image=image)
 
 
@@ -266,13 +309,13 @@ def menu_page(health):
     elif (day == 3 or day == 4) and (time > 8 and time < 12):
         menu = menu_24_breakfast
     elif (day == 0 or day == 4) and (time > 12 and time < 18):
-        menu = menu_1_lunch
+        menu = menu_24_dinner
     elif day == 1 and (time > 12 and time < 18):
         menu = menu_2_lunch
     elif (day == 2 or day == 5) and (time > 12 and time < 18):
         menu = menu_3_lunch
     elif day == 3 and (time > 12 and time < 18):
-        menu = menu_4_lunch
+        menu = menu_13_dinner
     elif (day == 0 or day == 4) and (time > 18 and time < 23):
         menu = menu_24_dinner
     elif (day == 2 or day == 5) and (time > 18 and time < 23):
@@ -280,10 +323,13 @@ def menu_page(health):
     elif (day == 3 or day == 1) and (time > 18 and time < 23):
         menu = menu_24_dinner
     else:
-        menu = menu_24_dinner
+        menu = menu_13_dinner
+
+    mac_say.say("let’s talk about your todays meal. I see that you had the following menu today, you will need to select one to check the nutritions")
 
 
     return render_template("menu_page.html", health=health, allergies=allergies, menu=menu)
+
 
 @app.route("/userinfo_page")
 def userinfo_page():
@@ -293,7 +339,10 @@ def userinfo_page():
 
 @app.route("/interaction_page")
 def interaction_page():
-	return render_template("interaction_page.html")
+    engine = pyttsx3.init()
+    engine.say("i am in interaction page")
+    engine.runAndWait()
+    return render_template("interaction_page.html")
 
 @app.route("/menu_page/nutritions_page/<health>", methods=['POST', 'GET'])
 def nutritions_page(health):
@@ -330,7 +379,13 @@ def nutritions_page(health):
                 'protein' : serve['protein']
              }
 
+    mac_say.say("Oh, nice. I like soups too")
+    time.sleep(1)
+    #mac_say.say("Remember you had turkey breast with corn salad last time when we interacted.")
+    #mac_say.say("Remember you had vegetable soup last time when we interacted.")
 
+    time.sleep(3)
+    mac_say.say("Lets have a look at its nutrition value now")
 
     return render_template("nutritions_page.html",  serve =data, health=health)
 
@@ -358,10 +413,10 @@ def suggestions_page(health):
     json_avoid = resp_avoid.json()
     json_suggest = resp_suggest.json()
     notes = json_data['notes']
-
+    print(json_data)
 
     data = {
-             'goodfor_data': resp.json(),
+             #'goodfor_data': resp.json(),
              'topitemstoconsume_data': resp_top.json(),
              'thingstoavoid_data' : resp_avoid.json(),
              #'suggestions_data' : resp_suggest.json()
@@ -372,19 +427,44 @@ def suggestions_page(health):
         # This means something went wrong.
         raise ApiError('GET /tasks/ {}'.format(resp.status_code))
 
-
+    #mac_say.say("You see that your selected item has 10 calories while it does not have any carbs, fat or proteins")
+    mac_say.say("You see that your selected item has 170 calories while it has 20 grams of carbs, 4 grams of fat and 14 grams of proteins")
+    time.sleep(1)
+    mac_say.say("Please click on the button to get some of my suggestions")
 
     return render_template("suggestions_page.html", data=data)
+@app.route("/menu_page/nutritions_page/suggestions_page/response")
+def response():
+    #mac_say.say("this soup is very healthy. It will be helpful to keep you fit.")
+    mac_say.say("You should try to consume Chicken noodle soup less.It will be helpful to keep you fit.")
+    time.sleep(1)
+    mac_say.say("Although, I suggest you to exercise more and eat Broccoli, Carrots, Potatoes, Spinach, Flaxseed, Nuts, Fish, Beans, Avocado, Persimmons and Berries")
+    time.sleep(2)
+    mac_say.say("while i recommend you to avoid more than 2 alcoholic drinks in a day, Sweets and Refined sugar, Excess Weight, Animal fat & Hydrogenated Vegetable Oil, Processed Meats and strictly avoid Smoking;")
+    time.sleep(1)
+    mac_say.say("Do you think you can do this for yourself?")
+    time.sleep(4)
+    mac_say.say("great")
+    time.sleep(1)
+    mac_say.say("Now, Please select your preference about today's meal after listening to my suggestions")
 
-@app.route("/menu_page/nutritions_page/suggestions_page/options")
+    return render_template("response.html")
+@app.route("/menu_page/nutritions_page/suggestions_page/response/options")
 def options():
-	return render_template("options.html")
+
+    mac_say.say("thank you")
+    time.sleep(2)
+    mac_say.say("Now Please Click on one of the following food Option that you would like to eat next time")
+
+    return render_template("options.html")
 
 @app.route("/end_page")
 def end_page():
-	return render_template("end_page.html")
-#@app.route("/admin")
-#	return redirect(url_for("user", name="Admin!"))  # Now we when we go to /admin we will redirect to user with the argument "Admin!"
+    mac_say.say("I really appreciate your time, Please fill the survey at the end of this session too")
+    time.sleep(1)
+    mac_say.say("I Hope to see you again")
+    mac_say.say("bye bye")
+    return render_template("end_page.html")
 
 
 if __name__ == "__main__":
